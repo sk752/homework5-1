@@ -7,7 +7,20 @@
             <th>Name</th>
             <th>&nbsp;</th>
         </tr>        
-        <!-- add category rows here -->
+        <?php foreach ($categories as $category): ?>
+	<tr>
+	  <td> <?php echo $category ['categoryName']; ?> </td>
+	  <td>
+	    <form action = "index.php" method ="post">
+	      <input type = "hidden" name ="action" value = "delete_category"
+	      />
+	      <input type="hidden" name="category_id"
+	      	value="<?php echo $category['categoryID']; ?>" />
+	      <input type ="submit" value="delete"/>
+	    </form>
+	  </td>
+	</tr>
+	<?php endforeach; ?>
     </table>
 
     <h2>Add Category</h2>
